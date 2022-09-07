@@ -65,7 +65,11 @@ switch (islem1) {
     sonuc1 = n1 - n2;
     break;
   case "/":
-    sonuc1 = n1 / n2;
+    if (n2 != 0) {
+      sonuc1 = n1 / n2;
+    } else {
+      console.log("0 a bölünmez");
+    }
     break;
   case "*":
     sonuc1 = n1 * n2;
@@ -75,4 +79,23 @@ switch (islem1) {
     break;
 }
 
-console.log(sonuc1);
+console.log(`${n1} ${islem1} ${n2} = ${sonuc1}`);
+
+//******TERNARY  ********/
+
+//? ornek: maasınız asgari ücretten düşük ve eşitse maaşınıza %25 zam yapılsın, değilse maaşınıza %10 zam yapılsın.
+const asgariUcret = 5500;
+let maas = +prompt("Maasinizi giriniz : ");
+
+const zamliMaas =
+  maas <= asgariUcret ? (maas += maas * 0.4) : (maas += maas * 0.1); //veya maas*1.25 : maas*1.1 (Ayni mantik)
+
+// : else ? if anlamina gelmektedir
+
+console.log(zamliMaas);
+
+//?Ornek:10 aylık maasınız borcunuzdan 5000 ve üstü kadar fazlaysa kredi alabilirsiniz, aksi durumda alamazsınız
+const maas2 = +prompt("Maasinizi giriniz : ");
+const borc = +prompt("Borcunuzu giriniz : ");
+
+console.log(maas2 * 10 - borc >= 5000 ? "Kredi alabilir🥳" : "Kredi alamaz😥 ");
