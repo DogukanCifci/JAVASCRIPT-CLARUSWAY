@@ -60,3 +60,26 @@ console.log(hacimHesapla(2, 5));
 console.log(hacimHesapla(2, 5).toFixed(2));
 
 //toFixed() --> Virgüllü bir sayida virgülden sonra istedigimiz adette sayi almayai saglar.toFixed(a) a yerine ne kadar yazarsak
+
+//* ORNEK5: Girilen n. terimdeki kadar Fibonacci sayisını  yazdiran fonksiyonu dongu ile kodlayiniz.
+//? FIBONACCI terimleri:  1, 1, 2, 3, 5, 8, 13, 21, ...
+
+const fibo = (n) => {
+  let fibSol = 1;
+  let fibSag = 1;
+  let toplam = 0;
+
+  for (let i = 2; i < n; i++) {
+    toplam = fibSol + fibSag;
+    console.log(toplam);
+    fibSol = fibSag;
+    fibSag = toplam;
+  }
+  return toplam;
+};
+
+console.log(
+  "7.Rakam : ",
+  fibo(7),
+  "(*Ilk 2 sayi 1 1 onlari da katinca 7.rakam)"
+);
