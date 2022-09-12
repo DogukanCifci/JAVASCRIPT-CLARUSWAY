@@ -157,3 +157,27 @@ console.log(oku.replace(/SAF/i, "fakir")); // Iki /..../ arasina kelimeyi yazip 
 //Yukarda sadece sectigimiz kelimenin ilk karsilasilanina etki ediyor. Daha sonrakine etki etmiyordu. Cünle icindeki bütün ayni kelimeleri degistirmek icin ;
 
 console.log(oku.replace(/Saf olma/gi, "zengin ol")); // g bütün hepsi icin, i de büyük kücük harfe dikkat etme anlamina gelir ----> /...KELIME.../gi
+
+//* ----------------------------------------------------------
+// replaceAll() --immutable
+//* ----------------------------------------------------------
+
+let degistir = "Oku Johny gibi saf olma, saf olma";
+console.log(degistir);
+console.log(degistir.replaceAll("saf olma", "akilli ol")); //Bu sekilde de hepsini degistirebiliriz. Ambu yöntemle case sensitive olayini gkullanamiyoruz maalesef.Onun icin yukardaki metodu uygulayabiliriz. "/../gi yani"
+
+//* ----------------------------------------------------------
+//*  slice(beginIndex[, endIndex])
+//*  substring(beginIndex[, endIndex])
+//*  substr (depreceated)
+//* ----------------------------------------------------------
+
+const söz = "UZUN INCE BIR YOLDAYIM YÜRÜYORUM GÜNDÜZ GECE";
+
+console.log(söz.slice(10)); //Pythondaki liste[10:] metodu ile ayni
+console.log(söz.slice(10, 17)); // Pythondaki liste[10:17] metodu ile ayni
+console.log(söz.substring(10, 17)); // Yukardaki ile ayni sonucu verir.
+
+console.log(söz.slice(-21, -15));
+console.log(söz.slice(-11)); //-11. indexten cümlenin sonuna kadar
+console.log(söz.substring(-11)); //Substring metodunda - index calismaz tüm cümleyi verir
