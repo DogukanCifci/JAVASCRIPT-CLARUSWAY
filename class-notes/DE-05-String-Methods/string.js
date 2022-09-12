@@ -115,8 +115,45 @@ console.log(kelime3.indexOf("abcdE")); //Olmadigi icin -1 döndürür.
 
 //* ----------------------------------------------------------
 
-const kelime4 = "to be or not to be, tHat is tHe question.";
+const kelime4 = " to be or not to be, tHat is tHe question.";
 
 console.log(kelime4.search(/[A-Z]/)); // Ilk büyük karakterin konumunu verir. Yoksa -1 döndürür
 
 console.log(kelime4.search(/[0-9]/));
+
+console.log(kelime4.search(/[0-9A-Za-z]/)); //1 verir. Boslugu algilamaz.Kosuldaki sarti ilk saglayan kücük harf oldugu icin onun indexini döndürdü
+console.log(kelime4.search(/[^A-Z]/)); // Büyük harf disindakiler anlamina geliyor. //0 Verir cünkü boslugu da sayar.Cünkü bosluk Büyük harf disinda bir karakter
+
+//* ----------------------------------------------------------
+// startsWith() ,endsWith() --case sensitive
+
+//* ----------------------------------------------------------
+
+const kelime5 = "Salina salina sinsice!";
+console.log(kelime5.startsWith("sa")); // false cünkü büyük s ile(S) basliyor
+console.log(kelime5.startsWith("Sa")); // true
+
+//Ikinci "sa" bulmak icin ;
+console.log(kelime5.startsWith("sa", 7)); //7.karakterden itibaren ara dedim. 7. karaktersa ile basladigi icin true
+
+console.log(kelime5.endsWith("!"));
+console.log(kelime5.endsWith("i", 4)); //Bir sonraki indexi yazmaliyim.Son karakter sayilmadigi icin
+console.log(kelime5.endsWith("salina", 13));
+
+//* ----------------------------------------------------------
+// replace(searchFor, replaceWith) --immutable
+
+//* ----------------------------------------------------------
+
+let oku = "Oku Johannes gibi, saf olma, saf olma";
+
+let degisiklik = oku.replace("saf olma", "basarili ol"); //Ilk saf olma yi degistirdi. Ikincisi ayni kaldi.
+
+console.log(degisiklik);
+console.log(oku); // let oku üzerinde kalici degisiklik olmaz. Degisiklikleri yeni variable olan degisiklik 'e atadik.
+
+console.log(oku.replace(/SAF/i, "fakir")); // Iki /..../ arasina kelimeyi yazip sonuna i---> (/..../i) eklersek case sensitive önemsiz olur.
+
+//Yukarda sadece sectigimiz kelimenin ilk karsilasilanina etki ediyor. Daha sonrakine etki etmiyordu. Cünle icindeki bütün ayni kelimeleri degistirmek icin ;
+
+console.log(oku.replace(/Saf olma/gi, "zengin ol")); // g bütün hepsi icin, i de büyük kücük harfe dikkat etme anlamina gelir ----> /...KELIME.../gi
