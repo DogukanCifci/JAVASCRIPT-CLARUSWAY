@@ -181,3 +181,40 @@ console.log(söz.substring(10, 17)); // Yukardaki ile ayni sonucu verir.
 console.log(söz.slice(-21, -15));
 console.log(söz.slice(-11)); //-11. indexten cümlenin sonuna kadar
 console.log(söz.substring(-11)); //Substring metodunda - index calismaz tüm cümleyi verir
+
+//* ----------------------------------------------------------
+//* split= string i diziye çevirir
+//* split(sep , limit ) =>ikisi de optional immutable
+// //* split(" ")=>boşluklardan ayırır,boşlukları silip virgül+boşluk yapar ve yeni dizi döndürür.orjinal diziyi değiştirmez
+//* ----------------------------------------------------------
+
+const tarkan = "Gel gündüzle gece olalim!";
+
+let degistirilmis = tarkan.split("e");
+
+console.log(degistirilmis);
+
+console.log(degistirilmis.join("e")); // Bu sekilde tüm kelimeleri e ile tekrar birlesitrisek ayni cümleyi elde etmis oluruz
+
+console.log(tarkan.split()); //Tüm cümleyi tek bir eleman olarak alir
+console.log(tarkan.split("")); //Her karakteri tek tek eleman olarak alir
+
+console.log(tarkan.split("e", 2)); //e'lerden ayir ve sadece ilk iki elemani al
+console.log(tarkan.split(" ", 2)); //bosluklardan ayir ve sadece ilk iki elemani al
+
+console.log(tarkan); // Immutabledir. Degisiklikler orijinali degistirmez. Kalici degistirmek istersem ya yeni bir variable olusturcam ya da tarkan = tarkan.split() vb yazmam gerekirdi.
+
+//* ----------------------------------------------------------
+//  trim()
+
+//* ----------------------------------------------------------
+
+const ramazan = "    hosgeldin     ya Sehr i Ramazan      ";
+
+console.log(ramazan.length); //Bosluklari da sayar.... 41
+
+console.log(ramazan.trim()); //Sagdan ve soldan olan bosluklari siler
+
+console.log(ramazan.trim().length); //31
+
+console.log(ramazan);
