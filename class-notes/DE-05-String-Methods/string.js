@@ -83,3 +83,28 @@ console.log(cümle1.charAt(10));
 console.log(cümle1.charAt()); //Eger icini bos birakirsak ilk harfi döndürür.
 
 console.log(cümle1.charAt(cümle1.length - 1));
+
+//* ----------------------------------------------------------
+//* includes(); case sensitive
+
+//* ----------------------------------------------------------
+
+const kelime = "to be or not to be, that is the question.";
+
+console.log(kelime.includes("o"));
+console.log(kelime.includes("@"));
+console.log(kelime.includes("TO BE")); //false because there is case sensitive
+console.log(kelime.includes("to be"));
+console.log(kelime.toUpperCase().includes("TO BE"));
+
+console.log(kelime.includes("to be", 15)); // 15. indexten sonra to be var mi onu arar. //index yerine karakter yazamayiz.Karakterin indexini bulmaliyiz önce
+
+//* ----------------------------------------------------------
+//* indexOf() -lastIndexOf() --case sensitive
+
+//* ----------------------------------------------------------
+
+const kelime3 = "to be or not to be, that is the question.";
+
+console.log(kelime3.indexOf("be")); //3 Bastan gelerek lk "be" yi bulur
+console.log(kelime3.lastIndexOf("be")); //16 sondan gelerek ilk "be" yi bulur
