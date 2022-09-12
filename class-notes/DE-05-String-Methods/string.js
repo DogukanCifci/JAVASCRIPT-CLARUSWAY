@@ -108,3 +108,15 @@ const kelime3 = "to be or not to be, that is the question.";
 
 console.log(kelime3.indexOf("be")); //3 Bastan gelerek lk "be" yi bulur
 console.log(kelime3.lastIndexOf("be")); //16 sondan gelerek ilk "be" yi bulur
+console.log(kelime3.indexOf("abcdE")); //Olmadigi icin -1 döndürür.
+
+//* ----------------------------------------------------------
+// search()--case sensitive
+
+//* ----------------------------------------------------------
+
+const kelime4 = "to be or not to be, tHat is tHe question.";
+
+console.log(kelime4.search(/[A-Z]/)); // Ilk büyük karakterin konumunu verir. Yoksa -1 döndürür
+
+console.log(kelime4.search(/[0-9]/));
