@@ -228,19 +228,26 @@ const list2 = ["ali", "ahmet", "muhammed", "mustafa"]; //Tek bir eleman olarak d
 console.log(list1.concat(list2));
 
 //Eger tek bir eleman olarak eklemek istersem liste icinde liste olarak yazariz.
+
 const list3 = [[77, "9822"]];
 console.log(list1.concat(list3));
+
 //* every()
 //*-----------------------------------------------------------
 //? Tum diziyi itere eder ve aldigi callback fonksiyonuna gore
 //? test gerceklestirir.Tum elemanlar icin test basarili ise
 //? true aksi takdirde false deger dondurur.
 
+const yas = [21, 12, 35, 44, 67, 76];
+console.log(yas.every((a) => a > 18)); //Bir tane bile 18den kücük sayi bulursa false verir.Eger tüm elemanlar sarti sagliyorsa ture döndürür.Sadece 12 yüzünden false döndürür
+
 //* some()
 //*-----------------------------------------------------------
 //? Aldigi callback fonksiyonuna gore test gerceklestirir.
 //? En az bir eleman icin bile test basarili ise true aksi
 //? takdirde false deger dondurur.
+
+console.log(yas.some((a) => a <= 18)); //Burda da sarti saglayan bir tane bile eleman olsa true verir sonucu
 
 //* find(), findLast()
 //*-----------------------------------------------------------
@@ -250,6 +257,10 @@ console.log(list1.concat(list3));
 
 //?Ornek: Yasi 30 dan buyuk olan ilk elemani yazdirin
 
+console.log(yas.find((a) => a > 30)); //Elemanlar arasinda 30 dan büyük karsilastigi ilk sayiyi döndürür.
+
+console.log(yas.findLast((a) => a >= 30)); //listenin sonunda baslayarak 30 dan büyük veya esit karsilastigi ilk elemani döndürür.
+
 //* findIndex()
 //*-----------------------------------------------------------
 //? Aldigi callback fonksiyonuna gore test gerceklestirir.
@@ -257,3 +268,6 @@ console.log(list1.concat(list3));
 //? Eger hic bir eleman kosulu saglamazsa -1 dondurur.
 
 //?Ornek: Yasi 30 dan buyuk olan ilk elemanin indexini yazdirin
+
+console.log(yas.findIndex((i) => i > 45));
+//Liste elemanlarindan 45ten büyük olan ilk elemanin indexini dönder
