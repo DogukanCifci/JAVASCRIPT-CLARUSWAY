@@ -130,3 +130,130 @@ meyveler.splice(2, 0, "Mango"); //2.indisteki elemani saga kaydirarak Mango list
 //Parantez icindeki 0 silme anlamina 2 ise 2. indise ekle anlamina geliyor
 console.log(meyveler);
 // 0 yerine bir yazarsak elemani siler.
+
+//? ===========================================================
+//?  DİZİ ERİŞİM METOTLARI (diziyi değiştirmezler)
+//? ===========================================================
+const sayilar1 = [3, 5, 2, "2", "uc", 2, "bes", 5, "8"];
+//* includes()
+//*-----------------------------------------------------------
+console.log(sayilar1.includes("5"));
+console.log(sayilar1.includes(5));
+
+//* indexOf(),  lastIndexOf();
+//*-----------------------------------------------------------
+console.log(sayilar1.indexOf("2"));
+console.log(sayilar1.indexOf(2, 3)); //3.indisten sonraki ilk 2yi bul
+console.log(sayilar1.lastIndexOf(5));
+//*örnek
+
+//* kullanıcıdan sayı isteyin. girilen sayının hem string hem number hali sayılar dizisinde var mı araştır, varsa index ini döndür
+
+let sayiGiris = prompt("Bir sayi giriniz");
+sayiGirisNumber = +sayiGiris;
+
+if (sayilar1.includes(sayiGiris) && sayilar1.includes(sayiGirisNumber)) {
+  console.log(
+    "Girdiginiz sayinin hem string hali hem de number hali bulunuyor"
+  );
+} else if (
+  sayilar1.includes(sayiGiris) &&
+  sayilar1.includes(sayiGirisNumber) == false
+) {
+  console.log("GHirilen Sayinin sadece string hali bulunuyor.Number Hali yok.");
+} else if (
+  sayilar1.includes(sayiGiris) == false &&
+  sayilar1.includes(sayiGirisNumber)
+) {
+  console.log("Girilen Sayinin  string hali bulunmuyor.Number Hali mevcut.");
+} else {
+  console.log(
+    "Girilen sayinin number hali ve string hali listede mevcut degil"
+  );
+}
+console.log("***********");
+
+//* join()
+//*-----------------------------------------------------------
+//? join, dizinin elamanlari birlestirip string hale cevirir.join(" ")=>virgül+boşluk sil boşluklarla (join parantezinde 2 varsa her eleman arasına 2 koy) ayır
+//* split(" ")=>string i boşluklardan ayırır,boşlukları silip virgül+boşluk yapar ve yeni dizi döndürür.orijinal diziyi değiştirmez
+//sayilar1 = [3, 5, 2, "2", "uc", 2, "bes", 5, "8"]
+console.log(sayilar1.join(" "));
+console.log(sayilar1.join("-"));
+console.log(sayilar1.join("aaa ")); //Elemanlar arasina join icine yazdigimiz seyi getirir.
+console.log(sayilar1.join()); //Hicbir sey  yazmazsam "," ile ayirir
+//*dizinin 2 indexli elemanını tersten string olarak yazdır
+const meyveler3 = [
+  "Armut",
+  "Ayva",
+  "Mango",
+  "Cilek",
+  "Erik",
+  "Karpuz",
+  "Kavun",
+  "Muz",
+];
+
+//Sadece dizilerde gecerli oldugu icin önce dizi icindeki elemani da split() metodu ile diziye cevirmem lazim
+const kelimeListHali = meyveler3[2].split("").reverse();
+console.log(kelimeListHali);
+
+//Tekrar eski halone getirmek icin join ile birlestirirz.
+const birlestirmeTekrar = kelimeListHali.join("");
+console.log(birlestirmeTekrar);
+// veya direk kisaca
+
+const kelimeListHali2 = meyveler3[5].split("").reverse().join("");
+console.log(kelimeListHali2);
+
+//* toString()
+//*-----------------------------------------------------------
+//? toString fonksiyonu sadece dizinin elemanlarinin aralarina
+//? (virgul) koyarak birlestirir ve string yapar.
+
+console.log(sayilar1.toString()); //* -->.join(",") ayni
+//* slice()
+//*-----------------------------------------------------------
+
+const arabalar = ["bmw", "mercedes", "audi", "volvo", "ferrari"];
+console.log(arabalar.slice(1, 3)); //1 dahil 3 dahil degil python[1:3] ile ayni
+
+const arabalarCopy = arabalar.slice(0);
+console.log(arabalarCopy);
+
+//* concat()
+//*-----------------------------------------------------------
+const list1 = [1, 3, 5, 12, 6, 7, 9];
+const list2 = ["ali", "ahmet", "muhammed", "mustafa"]; //Tek bir eleman olarak degil 2 farkli eleman olarak listeye girer.
+console.log(list1.concat(list2));
+
+//Eger tek bir eleman olarak eklemek istersem liste icinde liste olarak yazariz.
+const list3 = [[77, "9822"]];
+console.log(list1.concat(list3));
+//* every()
+//*-----------------------------------------------------------
+//? Tum diziyi itere eder ve aldigi callback fonksiyonuna gore
+//? test gerceklestirir.Tum elemanlar icin test basarili ise
+//? true aksi takdirde false deger dondurur.
+
+//* some()
+//*-----------------------------------------------------------
+//? Aldigi callback fonksiyonuna gore test gerceklestirir.
+//? En az bir eleman icin bile test basarili ise true aksi
+//? takdirde false deger dondurur.
+
+//* find(), findLast()
+//*-----------------------------------------------------------
+//? Aldigi callback fonksiyonuna gore test gerceklestirir.
+//? Kosulu saglayan ilk dizi elemaninin dondurur.
+//? Eger hic bir eleman kosulu saglamazsa undefined dondurur.
+
+//?Ornek: Yasi 30 dan buyuk olan ilk elemani yazdirin
+
+//* findIndex()
+//*-----------------------------------------------------------
+//? Aldigi callback fonksiyonuna gore test gerceklestirir.
+//? Kosulu saglayan ilk dizi elemaninin indeksini dondurur.
+//? Eger hic bir eleman kosulu saglamazsa -1 dondurur.
+
+//?Ornek: Yasi 30 dan buyuk olan ilk elemanin indexini yazdirin
