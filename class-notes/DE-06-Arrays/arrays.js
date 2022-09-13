@@ -103,3 +103,30 @@ console.log(meyveler);
 //Ben dizi icindeki bir eleamni ters yazdirmak istersem önce o elemani da harfleriyle diziye cevirmemiz gerekiyor.Cünkü reverse() dizilere ait bir metoddur.
 
 console.log(meyveler[4].split("").reverse()); //Önce split ile harflerine ayirdik ve listeye cevirmis oldu. Daha sonra istersek .join() ile harfleri birlestirip kelime olusturabiliriz
+
+//**********************************************************************
+//*sort()
+
+const number = [3, 5, 1, 35, 10, 22, 55, 77, 231];
+
+console.log(number.sort()); //Siraladi ama ilk sayilara bakarak siraladi.
+
+//Onun icin su sekilde yazmaliyiz
+
+number.sort((a, b) => a - b);
+console.log(number);
+
+//String ifadcelerde sikinti olmuyor.
+
+meyveler.sort();
+console.log(meyveler); //Türkce karakterleri sona atar. Cünkü ASCII tablosunda daha sonraki siralarda bulunur.(farklik karakter gibi algilanir)
+
+//**********************************************************************
+//*splice()
+
+//['Armut', 'Ayva', 'Cilek', 'Erik', 'Karpuz', 'Kavun', 'Muz']
+
+meyveler.splice(2, 0, "Mango"); //2.indisteki elemani saga kaydirarak Mango listeye eklenir. meyveler[] -->metodu ile silmeden ekleme yapamadigimiz icin burda splice metodu ile silmeden ekleme yapabiliriz.
+//Parantez icindeki 0 silme anlamina 2 ise 2. indise ekle anlamina geliyor
+console.log(meyveler);
+// 0 yerine bir yazarsak elemani siler.
