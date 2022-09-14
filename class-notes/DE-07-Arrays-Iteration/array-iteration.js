@@ -28,7 +28,7 @@ console.log(degisikliklerGitti); //undefined. Bunun sonucu undefined cikar.Cünk
 //* yeni bir diziye saklayalım.
 
 const names = [
-  "doguk",
+  "dogukan",
   "hilal",
   "faruk",
   "sinan",
@@ -45,3 +45,41 @@ console.log(names); //oRIJINAL HALI SABIT KALDI
 const yeniIsim = names
   .map((a) => a.toUpperCase())
   .forEach((b) => console.log(b));
+
+//* ======================================================
+//* ======================================================
+//* ======================================================
+//* p => prices dizisinin her bir elemanı
+//* i => indis
+//* array=> prices dizisidir.
+
+let toplam1 = 0;
+prices.forEach((p, i, prices) => {
+  toplam1 += p;
+  console.log(`${i}. Toplam = ${toplam1}`);
+  prices[i] = p + 10;
+  //Bu sekilde prices listesi degistirilmis oldu
+  //Bunu kalici olarak yapmak icin prices[i] yaptik. p = p + 10 yapsak degisiklik sadece burasi icin olurdu
+});
+console.log(prices);
+
+//*örnek
+//* fiyatlar dizisindeki ürün fiyatlarinin 250 TL altında olanlarına
+//* %50 zam, diğerlerine de %20 zam yapılmak isteniyor. Ayrıca
+//* zamli fiyatlar kalıcı olarak diziye işlenmek isteniyor fiyatlar[1]=eski fiyat*1.5 gibi
+//* 1. ürünün zamlı fiyati 110 TL gibi
+//* p => prices dizisinin her bir elemanı
+//* i => indis
+//* array=> prices dizisidir.
+
+const fiyatlar = [100, 260, 50, 90];
+console.log("Eski fiyatlar => ", fiyatlar);
+fiyatlar.map((p, i, array) => {
+  if (p < 250) {
+    array[i] = p * 1.5; //Kalici degisiklik olmasi icin array[i] kullandik. p = p *1,5 yazarsak degisiklik sadece burdaki p icin olacakti ve disarda gözükmeyecekti.
+  } else {
+    array[i] = p * 1.2;
+  }
+});
+
+console.log("Yeni Fiyatlar =>", fiyatlar);
