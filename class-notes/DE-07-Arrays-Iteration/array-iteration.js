@@ -83,3 +83,24 @@ fiyatlar.map((p, i, array) => {
 });
 
 console.log("Yeni Fiyatlar =>", fiyatlar);
+
+//* ======================================================
+//*                       FILTER METHOD
+//* ======================================================
+//* prices array'inde fiyatı 100 TL den az olanlari ayri
+//* bir diziye saklayalim.
+const fiyatlar1 = [100, 260, 50, 90];
+const kücükYüz = fiyatlar1.filter((i) => i < 100);
+//Sadece 100den kücük elemanlari yazdir
+console.log(kücükYüz);
+
+//EKSTRA
+const fiyatlar2 = [100, 260, 50, 90];
+
+fiyatlar2
+  .filter((i) => i <= 100) //100den kücük olanlari bul
+  .map((a) => a * 1.5) //Onlari 1.5 ile carp //!!!Burda forEach yapsak undefined olacagi icin sonuc hata olurdu
+  .forEach((z) => console.log(z)); //1.5 ile carpilmis hallerini sirayla yazdir.
+
+//Bunun yerine
+console.log(fiyatlar2.filter((i) => i <= 100).map((a) => a * 1.5)); //Bu da listeli hali.En son forEach ile yazdirmak yerine bunula ylisteledik
