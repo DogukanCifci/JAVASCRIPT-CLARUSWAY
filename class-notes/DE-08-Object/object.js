@@ -131,3 +131,30 @@ people.forEach((a) => console.log(a.name, a["job"]));
 //Kalici olarak orijinal listeyi degistirmek istersem ;
 people.map((a, i, array) => (array[i].age = a.age + 1));
 console.log(people);
+
+//33 yasin üstünde olan kisilerin namelerini listele
+
+people.filter((p) => p.age > 33).forEach((a) => console.log(a.name));
+
+//Her elemanin name ini büyük harfe cevir ve yaslarini 5 artirarak yeni bir objecte tanimlayin
+
+const yeni = people.map((a) => ({
+  newName: a.name.toUpperCase(),
+  newAge: a.age + 5,
+}));
+
+//Mantigi yeni bir object olsuturduk. name ve age olan iki bilgiyi diger objectten aldik. Yani bu yeni object icinde sadece age ve name gözükecek. Diger bilgileri eklemiyoruz cünkü
+console.log(yeni);
+
+//Süslüden önce normal parantez yazmaliyiz. Yoksa hata veriyor
+
+//*Soru : Developer adlarini ve yaslarini yeni bir object olarak saklayin
+
+const newObject = people
+  .filter((p) => p.job == "developer")
+  .map((a) => ({
+    newName: a.name,
+    newAge: a.age,
+  }));
+
+console.log(newObject);
