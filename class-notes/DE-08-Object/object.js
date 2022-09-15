@@ -60,5 +60,27 @@ console.log("Person yeni Bilgiler ---->>>", person);
 console.log("Location eklendi-Yas güncellendi");
 
 //* ---------------------------------------------------------
-//* 3- Object literal (En Çok Kullanılan Yol)
+//* 3- Objects teki Yöntemler
 //* ---------------------------------------------------------
+
+const Mensch = {
+  name: "Johny",
+  surname: "Depp",
+  birthday: 1989,
+  job: "Actor",
+  hasDriverLicense: true,
+  ageCalculation: function () {
+    return new Date().getFullYear() - this.birthday;
+  },
+  özet: function () {
+    return `${this.name} is ${this.ageCalculation()} years old.`;
+  },
+};
+
+console.log(Mensch.ageCalculation()); //33
+
+console.log(Mensch.özet()); //Johny is 33 years old.
+
+console.log(Mensch);
+
+//!NOTE: arrow functions ın sözcüksel bağlamı vardır. Yani this keyword ü bir arrow function içinde kullanırsak beklenmedik değerler alabiliriz. Bir object in içindeki this keyword ü, global scope u (window) ifade ettiği için. this value nun global scope a bağlanmasını önlemek için, object yöntemi içindeki normal function u kullanın.
