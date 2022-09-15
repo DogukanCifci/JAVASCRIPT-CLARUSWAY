@@ -153,3 +153,23 @@ const bulHarf = (harf) => {
 
 bulHarf("b");
 bulHarf("M");
+
+//* ======================================================
+//*                       REDUCE
+//* ======================================================
+
+//*Salaries dizisindeki maaslari toplayiniz...
+
+const salaries = [3000, 5000, 4000, 6000, 7500];
+//Reduce sonuc olarak bir eleman döndürür. Dizi döndürmez. Onun icin bu sonucu forEach() icinde console.log ile yazdiramayiz.
+console.log(
+  salaries.reduce((toplam, diziElemanlari) => toplam + diziElemanlari)
+);
+
+const sonuc = salaries.reduce(
+  (carpimSonuc, diziElemanlar) => carpimSonuc * diziElemanlar
+);
+console.log(sonuc);
+//reduce iki tane degisken alir.Ilk degisken toplam ya da carpim o tarz sonuc degeridir. Ikinci degisken ise dizi icindeki elemanlari tek tek dolanir. Yani o elemanlarin tek tek degeridir
+
+//toplam += eleman ===>> toplam + eleman  reduce icinde bu sekilde ypiyoruz. O otamatikmen toplama atiyor.
