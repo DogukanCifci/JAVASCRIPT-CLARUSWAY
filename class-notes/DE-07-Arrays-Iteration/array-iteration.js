@@ -104,3 +104,52 @@ fiyatlar2
 
 //Bunun yerine
 console.log(fiyatlar2.filter((i) => i <= 100).map((a) => a * 1.5)); //Bu da listeli hali.En son forEach ile yazdirmak yerine bunula ylisteledik
+
+//* ======================================================
+//*                       PIPELINE
+//* ======================================================
+
+//!slide daki soru, pipeline olmazsa böyle uzun uzun if le çözeriz
+//* Fiyatı 100 TL den fazla olanlara %10 zam, 100 TL den az olanlara ise %15 zam yapılmak isteniyor. Ayrıca, zamlı olan yeni değerleri örnekteki gibi diziye saklamak istiyoruz.
+const tlFiyatlar = [100, 150, 100, 50, 80];
+
+const degerler = tlFiyatlar.map((d) => {
+  if (d > 100) {
+    d = d * 1.1;
+  } else {
+    d = d * 1.15;
+  }
+  return d;
+});
+console.log(degerler);
+
+//2.YONTEM
+
+const ilk = tlFiyatlar.filter((i) => i > 100).map((i2) => i2 * 1.1);
+
+const son = tlFiyatlar.filter((p) => p <= 100).map((i2) => i2 * 1.15);
+console.log(ilk.concat(son)); //Ikisinin listeli halini istedigi icin bu sekilde birlestirip bir listeye aldik.
+
+//*-------------- ÖRNEK -------------------
+//*people dizisinde ismin ilk harfine göre arama yaparak ilgili isimlerin ilk 3 harfini yazdıran bir fonksiyon yazınız.
+const people = [
+  "Baser",
+  "Berivan",
+  "Mehmet",
+  "Mustafa",
+  "Mali",
+  "Halil",
+  "Fatih",
+  "Hasret",
+  "Fatma",
+];
+
+const bulHarf = (harf) => {
+  people
+    .filter((h) => h.startsWith(harf.toUpperCase()))
+    .map((k) => k.slice(0, 3))
+    .forEach((k) => console.log(k));
+};
+
+bulHarf("b");
+bulHarf("M");
