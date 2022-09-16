@@ -227,3 +227,57 @@ console.log(ikizNumber);
 console.log(esasNumberGerisi); //Bu sfer orijinal olan da degisti
 
 console.log("Bu sfer orijinal olan da degisti");
+
+//! 2.)) Bir fonksiyonun argümanlarini diziye cevirmek icin kullanilabilir.
+
+const sum = (x, y) => x + y;
+console.log(sum(3, 5)); //8
+
+console.log(sum(1, 2, 3, 4, 5, 6, 7)); //Hata vermez ama ilk iki elemani alir sadece.
+
+//*2.yol
+
+//Bu sekilde 2den fazla degisken yollanirsa onu listeye cevirebiliriz bu sekilde
+const sum2 = (...sayilarListeHali) => {
+  console.log(sayilarListeHali);
+  console.log(sayilarListeHali.reduce((a, b) => a + b));
+};
+
+sum2(1, 2, 3, 4);
+
+//? ------------------------------------------------------
+//?  SPREAD==>> parçala (yapısını boz)-> istenilen diziye ekle,içinde gezin vs
+//? ------------------------------------------------------
+
+const zeugs = ["Aircraft", "Helicopter", "Bicycle"];
+const automobiles = ["Trucks", "Bus", "Car", "SUV"];
+
+console.log(zeugs.concat(automobiles));
+console.log(zeugs + automobiles);
+console.log([zeugs, automobiles]);
+
+console.log();
+console.log("-----------");
+console.log();
+
+const birlesik = [...zeugs, ...automobiles]; //concat yapmisim gibi birlestirmis oldu
+console.log(birlesik);
+
+//Bu sekilde istedigim gibi birlesitirp araya sona bir  seyler ekleyebilirim.Mesela ;
+console.log("-----");
+const birlesik2 = [
+  ...zeugs,
+  "Merhaba",
+  "Ikinci",
+  ...automobiles,
+  "Sona ekledigim eleman",
+];
+
+console.log(birlesik2);
+
+//BIR KELIMEYI SPLIT KULLANMADAN LISTEYE CEVIREBILIRIM
+
+let word = "Hello Almany";
+
+console.log(...word); //Bu listesiz olarak tüm harfleri ayirarak verir
+console.log([...word]); //Bütün harfleri ayri ayri listeleyerek verir
