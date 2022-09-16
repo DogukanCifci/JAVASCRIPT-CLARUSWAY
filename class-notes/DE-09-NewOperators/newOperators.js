@@ -121,3 +121,109 @@ const yazdir1 = ({ id, name }) => {
 };
 const a1 = { id: 1, name: "Muhammed" };
 yazdir1(a1);
+
+//*======================================================
+//*   NEW GENERATION OPERATORS: SPREAD OR REST (...)
+//* ======================================================
+
+//? ------------------------------------------------------
+//?  REST =>>[...name]=diziden alınmayan, geri kalanları yeni bir (diziyse) diziye,(object se)object e atıyor
+//? ------------------------------------------------------
+
+//! 1- Bir dizi veya object'deki bazi degerlerden geri kalanlarini
+//!    ayri dizi yada objelere kopyalanmasini saglayabilir.
+
+//*REST OBJECT
+
+const personel = {
+  pName: "Johny",
+  surname: "Depp",
+  job: "Actor",
+  age: 44,
+};
+
+// "..." kullanarak kalan secmedigim keyler farkli bir objecte saklanmis olur
+const { pName, ...gerisi } = personel;
+
+console.log(pName);
+console.log("--------");
+console.log(personel);
+console.log(gerisi);
+console.log(gerisi.surname, "----->... ile olusturdugum objectten aldigim"); //gerisi de artik personel gibi secmedigim keyelerden olusan bir objext oldu.alttaki console.log ile ayni sonucu verir
+console.log(personel.surname, "---->Normal orijinal objectten aldigim");
+
+//****OBJECT KOPYA */
+console.log("");
+console.log("OBJECT TAMAMI KOPYALAMA 1. YÖNTEM");
+const ikizPersonel = personel;
+
+console.log(ikizPersonel);
+//2.yöntem
+console.log("");
+console.log("2. ... ile kopyalama yöntemi");
+const { ...personelGerisi } = personel;
+console.log(personelGerisi);
+
+//****!!!!!!!!!!!!!IMPORTANTT!!!!!!!!!! */
+console.log("***********-------------***********");
+console.log("************************");
+//* orjinal diziden farklı bir kopya dizi oluşturduk, bu kopyaya yapılan değişiklik orjinal diziyi bozmaz
+personelGerisi.age = 40;
+console.log(personel);
+console.log(ikizPersonel);
+console.log(personelGerisi);
+
+console.log("************************");
+//*orjinal diziyle aynı şartlarda bir kopya oluşturduk, bu kopyaya yaptığımız ekleme çıkarma değişiklik, orjinal diziyi de bozar
+ikizPersonel.age = 100;
+console.log(personel);
+console.log(ikizPersonel);
+console.log(personelGerisi);
+
+//****** REST ARRAYS ***********-------------***********" */
+
+const autos = ["anadol", "renault", "bmw", "mercedes", "ferrari"];
+console.log("");
+console.log("----");
+
+//Bu sefer dizi icin yaptigimizdan dolayi köseli parantez kullanrak yaptik
+const [birinci, ikinci, ...autoGerisi] = autos;
+
+console.log(birinci, ikinci);
+console.log(autoGerisi);
+
+//*ARRAY kopya
+console.log();
+console.log("----------");
+const esasNumber = [10, 20, 30, 50];
+const ikizNumber = esasNumber;
+const [...esasNumberGerisi] = esasNumber;
+
+console.log(esasNumber);
+console.log(ikizNumber);
+console.log(esasNumberGerisi);
+
+console.log();
+console.log("... ILE OLUSTURDUGUM KOPYAYA DEGISIKLIKTEN SONRA");
+console.log("-----------");
+
+esasNumberGerisi.push(9999);
+console.log(esasNumber);
+console.log(ikizNumber);
+console.log(esasNumberGerisi); //"Sadece degisiklik yaptigimiz ... kopya degisti.Digerlerinde bir degisiklik olmadi"
+
+console.log(
+  "Sadece degisiklik yaptigimiz ... kopya degisti.Digerlerinde bir degisiklik olmadi"
+);
+
+console.log();
+console.log("ikizNumber = .. ILE OLUSTURDUGUM KOPYAYA DEGISIKLIKTEN SONRA");
+
+console.log("-----------");
+
+ikizNumber.unshift(222);
+console.log(esasNumber);
+console.log(ikizNumber);
+console.log(esasNumberGerisi); //Bu sfer orijinal olan da degisti
+
+console.log("Bu sfer orijinal olan da degisti");
