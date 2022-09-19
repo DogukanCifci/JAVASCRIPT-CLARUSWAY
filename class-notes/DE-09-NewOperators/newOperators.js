@@ -281,3 +281,10 @@ let word = "Hello Almany";
 
 console.log(...word); //Bu listesiz olarak tüm harfleri ayirarak verir
 console.log([...word]); //Bütün harfleri ayri ayri listeleyerek verir
+
+//------------TIP DÖNÜSÜMLERI ----------
+
+console.log(Number("0x11")); // 17 x=hexa=16 //BIRLER BASAMAGI, 16LAR BASAMAGI ..
+console.log(Number("0b101")); // 5 b=binary 2lik taban BIRLER BASAMAGI 2LER BASAMAGI 4 LER BASAMAGI
+console.log(Number("0o11")); // 9 o=opal=8 //BIRLER BASMAGI 8LER BASAMGI 64LER BASAMAGI
+console.log(Number("sayi")); //NAN
