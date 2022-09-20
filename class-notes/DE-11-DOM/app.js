@@ -103,8 +103,14 @@ document.querySelector(".sil").onclick = () => {
 
 document.querySelector(".dil").onkeydown = (tus) => {
   //Yani entera basilirsa anlamina geliyor
+  //enter keyCoe= 13
   if (tus.keyCode === 13) {
     document.querySelector(".ekle").click(); //Sanki .ekle ye tiklanmis gibi olsun anlami
+
     //Yani ekleye tiklandiginda yukarda ne gerceklesmesini istiyorsak burada da aynisi olacak
+
+    //Backspacetus cod = 8 // 46 = saga dogru silme
+  } else if (tus.keyCode === 8) {
+    document.querySelector(".sil").click();
   }
 };
