@@ -60,3 +60,39 @@ const liste = document.querySelector(".liste"); //
 // const yazi = document.createTextNode("Programlama Dilleri"); //Bagimsiz bir yazi suan
 // baslık.appendChild(yazi); //Burda baslik isimli h1 elementi ile  yazi isi,li bos texti bagdastiriryoruz.
 // inputDiv.after(baslık); //input-div'in sonrasina h1'i ekliyoruz.
+
+const bolum = document.querySelector("section");
+bolum.innerHTML =
+  `<h1 class="a text-center">${"Programlama Dilleri"}</h1>` + bolum.innerHTML;
+//Yeni element eklemeyi bu sekilde de yapabilirim. Bu yeni ekledigimiz baslik liden önce gözüksün ve eski elemanlar silinmesin diye bolum.innerHTML ekledik ama basliktan sonra ekledik.
+
+//bolum.innerHTML = bolum.innerHTML + `<h1 class="a">${"Programlama Dilleri"}</h1>` yapsaydik o zaman baslik listeden sonra gelir
+
+//============================================================
+//EKLE BUTONUNA BASILDIGINDA INPUTA GIRILEN UL LIsteme eklensin
+//*UZUN YOL
+// yeni girilen satiri saklamak icin bir li olusturduk.
+// const yeniLi = document.createElement("li");
+// yeni li icin textnode olusturduk
+// const textNode = document.createTextNode(language.value);
+//olusturdugumuz texnode'u yeni li'ye bagladik.
+// yeniLi.appendChild(textNode);
+// yeni eklenen satiri var olan listeye (ul) baglayalim.
+// liste.appendChild(yeniLi);
+
+document.querySelector(".ekle").onclick = () => {
+  const liste = document.querySelector(".liste");
+  const dil = document.querySelector(".dil");
+
+  liste.innerHTML = liste.innerHTML + `<li>${dil.value}</li>`;
+  dil.value = "";
+};
+
+//!Sil butonuna tiklandiginda ul listesinden silme metodu olan removeChild metodunu kullanicaz.
+console.log(liste);
+
+document.querySelector(".sil").onclick = () => {
+  const liste = document.querySelector(".liste");
+  liste.removeChild(liste.lastElementChild); //ul'nin son elemanini silme komutu
+  //liste.removeChild(liste.firstElementChild); //ul'nin ilk elemanini silme komutu
+};

@@ -1,13 +1,30 @@
 body {
   margin: 0;
 }
-
+img {
+  width: 400px;
+  height: 400px;
+}
 .btn {
-  margin-top: 20px;
   width: 100px;
+  height: 40px;
+}
+.input-div {
+  margin-top: 30px;
+}
+.textbox,
+.dil {
+  width: 300px;
+  height: 40px;
 }
 
-img {
-  width: 450px;
-  height: 300px;
+.resim {
+  width: 400px;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.a {
+  color: blue;
+  margin-top: 40px;
 }
