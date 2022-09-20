@@ -95,4 +95,16 @@ document.querySelector(".sil").onclick = () => {
   const liste = document.querySelector(".liste");
   liste.removeChild(liste.lastElementChild); //ul'nin son elemanini silme komutu
   //liste.removeChild(liste.firstElementChild); //ul'nin ilk elemanini silme komutu
+
+  // liste.removeChild(liste.children[2]); 2.indisteki yani 3.elemani sildirir.
+};
+
+//Klavyedeki key-code lari kullanarak input girisini alma
+
+document.querySelector(".dil").onkeydown = (tus) => {
+  //Yani entera basilirsa anlamina geliyor
+  if (tus.keyCode === 13) {
+    document.querySelector(".ekle").click(); //Sanki .ekle ye tiklanmis gibi olsun anlami
+    //Yani ekleye tiklandiginda yukarda ne gerceklesmesini istiyorsak burada da aynisi olacak
+  }
 };
