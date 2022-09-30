@@ -48,3 +48,55 @@ myPromise1
     console.log(response);
   })
   .catch((error) => console.log(error)); //exception as e gibi errorun ne oldugunu böyle yazdirabiliriz.
+
+//* Example-2: TEA TIME
+//* -----------------------------------------------------------------------
+//* 1. su kaynayana kadar bekleyin -> kettle -> work or failed
+//* 2. çay ekle --> çay var ya da yok
+//* 3. demlenmesini bekle
+// const bekle = (ms) => {
+//   const start = new Date().getTime();
+//   while (new Date().getTime() < start + ms);
+// };
+//!ilk then de sıkıntı varsa direk catch e düşer
+const brewTea = () => {
+  boil()
+    .then((status1) => {
+      console.log(status1);
+      return addTea();
+    })
+    .then((status2) => {
+      console.log(status2);
+      // bekle(1000);
+      return "Tea is ready. Bon Appetite";
+    })
+    .then((status3) => {
+      console.log(status3);
+    })
+    .catch((err) => console.log(err));
+};
+const boil = () => {
+  return new Promise((resolve, reject) => {
+    const boiled = Math.floor(Math.random() * 5); //!0 tutarsa false
+    if (boiled) {
+      // bekle(1000);
+      resolve("Water Boiled");
+    } else {
+      reject(new Error("Kettle Failed"));
+    }
+  });
+};
+
+const addTea = () => {
+  return new Promise((resolve, reject) => {
+    const teaAvalaible = Math.floor(Math.random() * 3);
+    if (teaAvalaible) {
+      // bekle(1000);
+      resolve("Tea was added");
+    } else {
+      reject(new Error("Tea unavailable"));
+    }
+  });
+};
+
+brewTea();
