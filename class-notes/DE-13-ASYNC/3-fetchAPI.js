@@ -33,7 +33,8 @@ const getData = () => {
         throw new Error("Bir hata olustu"); //Hata olusup olusmadigini kontrol ettik
       } else return response.json(); //Artik köseli parantezle yazdigimiz icin disariya return ile göndermemiz gereikiyor
     })
-    .then((data) => ekranaBastir(data)); //Burda kalabalik olmasi diye fonksiyon cagirdim. O fonksiyon icinde ekrana bastirma islemini yapacagim.json cevirdigim datalari fonksiyona göndermem gerekir
+    .then((data) => ekranaBastir(data)) //Burda kalabalik olmasi diye fonksiyon cagirdim. O fonksiyon icinde ekrana bastirma islemini yapacagim.json cevirdigim datalari fonksiyona göndermem gerekir
+    .catch((err) => console.log(err)); //Eger yukarda bi yerde bir hata olursa burda hatamizi gösterecek.
 };
 
 getButon.onclick = () => {
