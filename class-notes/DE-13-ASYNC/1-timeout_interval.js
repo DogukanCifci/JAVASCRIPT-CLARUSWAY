@@ -39,10 +39,10 @@ console.log("Naber"); //3 saniye sonra yazar  */
 setTimeout(() => {
   //non-blocking code---macrotask kuyruguna girer
 
-  console.log("Selamun aleyküm");
-}, 2000); //süslüden hemen sonra yazdigim, kac saniye sonra ilacagi anlamina geliyor.ms cinsinden. //Süre  burda 0 olsa bile önce console.log icindeki yazar. Cünkü bir kere buna settimeout atadik.Yani git sirada bekle dedik.Önce sirada beklemeyeceklerin bitmesi lazim.
+  console.log("Aleyküm selam");
+}, 2000); //süslüden hemen sonra yazdigim, kac saniye sonra olacagi anlamina geliyor.ms cinsinden. //Süre  burda 0 olsa bile önce console.log icindeki yazar. Cünkü bir kere buna settimeout atadik.Yani git sirada bekle dedik.Önce sirada beklemeyeceklerin bitmesi lazim.
 
-console.log("Aleyküm selam"); //Kuyrudaga daha sonra girmesine ragmen selamun aleykümden önce yazar
+console.log("Selamun aleyküm"); //Kuyrudaga daha sonra girmesine ragmen selamun aleykümden önce yazar
 
 setTimeout(() => {
   //non-blocking codemacrotask kuyruguna girer
