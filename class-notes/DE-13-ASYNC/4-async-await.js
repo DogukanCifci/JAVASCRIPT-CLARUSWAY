@@ -25,14 +25,14 @@
 //Bir degiskene atayip daha sonra direk onun üzerinden devam ediyorum.
 
 //Hata kontrolü yapmadan
-/*const getUsers = async () => {
+const getUsers = async () => {
   const response = await fetch("https://api.tvmaze.com/search/shows?q=girls");
 
   const data = await response.json();
   console.log(data);
 };
 
-getUsers(); */
+getUsers();
 
 //Hata kontrolü ile :
 
@@ -45,13 +45,18 @@ const getUsers2 = async () => {
 
     if (response.ok == false) {
       throw new Error(`Biraz hata var burada ${response.status}`); //throw ile hatayi firlattim.
+      //!hatanın ne olduğunu kendi cümlemizle görebiliriz, ama try catch siz throw olursa, hata durumunda kod burada durur, alttaki kodlar çalışmaz. bu yüzden try-catch kullanmalıyız
     }
     const data = await response.json();
     console.log(data);
+    pressDisplay(data); //Ekrana bastirmak icin burdan data yolladik
   } catch (error) {
     // Eger firlatilan bir hata varsa cath ile de yakaladim.
     console.log(error);
     console.log("try-catch sayesinde hata varsa bile devam..");
+    display.innerHTML = `
+    <h1>An Error Occured</h1>
+    <img src="./images/error.webp"/>`;
   } finally {
     console.log(
       "(FINALLY)Burasi hata olup olmamasindan bagimsiz bir sekilde her durumda calisacak..."
@@ -60,3 +65,18 @@ const getUsers2 = async () => {
 };
 
 getUsers2();
+
+//EKRANA BASTIRMA
+
+const display = document.querySelector(".users");
+
+const pressDisplay = (data) => {
+  console.log(data);
+  data.forEach((users) => {
+    display.innerHTML += `
+    <h2 class="text-success">Name: ${users.show["name"]}</h2>
+    <img src="${users.show.image.medium}" width="40%"/>
+    <h3 class="fst-italic">${users.show.genres}</h3><br/>
+    `;
+  });
+};
