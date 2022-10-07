@@ -17,7 +17,14 @@ const getCountry = async (countryName) => {
   }
 };
 
-let countryName = ["turkey", "canada", "germany", "peru", "sweden"];
+let countryName = [
+  "turkey",
+  "canada",
+  "germany",
+  "peru",
+  "sweden",
+  "palestine",
+];
 
 countryName.forEach((country) => getCountry(country));
 
