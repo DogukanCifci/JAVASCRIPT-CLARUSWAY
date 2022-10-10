@@ -29,3 +29,18 @@ const kitap1 = new Book("Nutuk", "Ataturk", 1925); //Burdaki siralama parameter 
 
 console.log(kitap1);
 console.log(kitap1.ozetFunction()); //Artik ObjectLiteraldeki kendi yazdigimiz format sekline gecti. Ayni sekilde cagirabiliyoruz bu yüzden
+
+//Prototype ekleme. ==>Eklememizin nedeni özellikle cagirana kadar bellekte yer tutmamasi
+
+Book.prototype.tur = "Roman";
+
+//Direk bir keyword de ekleyebiliriz. Ya da fonksiyon da ekleyebilir ve ihtiyac halinde fonksiyonu sanki Objectin icindeymis gibi cagirabiliriz.
+
+Book.prototype.yilHesapla = function () {
+  yas = new Date().getFullYear() - this.year;
+  return `${this.title} ${yas} yasindadir`;
+};
+
+console.log(kitap1); //console da prototype icinde görebilirsiniz
+
+console.log(kitap1.yilHesapla());
