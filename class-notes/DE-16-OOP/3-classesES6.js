@@ -17,7 +17,8 @@ class Book {
   }
 
   yilHesapla() {
-    return new Date().getFullYear - this.year;
+    const year = new Date().getFullYear();
+    return `Derginin Yasi : ${year - this.year}`;
   }
   //YilHesapla() fonksiyonu otomatik olarak Prototype'e gider. Cünkü constructor disinda ama class icinde yazilan her sey prototype'e gider. constructor  da temel insaattir.
 }
@@ -44,3 +45,4 @@ class Dergi extends Book {
 const dergi1 = new Dergi("Dogukan", "Leman Dergi", 2019, "Ekim");
 console.log(dergi1);
 console.log(dergi1.ozetFunction());
+console.log(dergi1.yilHesapla()); //Bu sekilde sanki normal tanimladigimiz class icindeki function gibi prototypedeki function i da cagirabiliriz.
