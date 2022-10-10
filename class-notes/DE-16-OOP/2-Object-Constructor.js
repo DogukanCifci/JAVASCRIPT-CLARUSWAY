@@ -48,3 +48,28 @@ console.log(kitap2.ozetFunction()); //Direk Object icinde tanimladigimiz fonksiy
 kitap1.tur = "Hikaye"; //Object icinde direk böyle yeni bir keyword ekler. Varsa eskisini degistirir
 //!!!!!!!!!!! __proto__ !!!!!
 kitap2.__proto__.tur = "Masal"; //Ama bu sekilde prototypedeki tur'ü direk degistirebliriz.
+
+//* ======================================================
+//*                   INHERITANCE
+//* ======================================================
+
+//Yukarda tanimladigimiz kitaptaki özellikler dergide de olacagi icin Kitap Objectini Dergi Objectine direk extend ettik. Ek olarak da basim ayini ekledik daha sonra.
+
+function Dergi(title, author, year, d) {
+  Book.call(this, title, author, year);
+  //this'den sonra da virgül gelicek.
+  //Dergi icindeki parametre isimler Diger cagirdigim objecttekiyle ayni olmali
+  this.month = d;
+}
+
+//Ama Book'da tanimladigim prototypler gelmez.Eger gelmesini istersek bu code yazmaliyiz.
+Dergi.prototype = Object.create(Book.prototype);
+
+const dergi1 = new Dergi(
+  "Yaprak Dökümü",
+  "Resat Nuri Güntekin",
+  1900,
+  "September"
+);
+
+console.log(dergi1);
