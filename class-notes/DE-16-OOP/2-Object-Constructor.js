@@ -25,22 +25,26 @@ function Book(parameter1, parameter2, parameter3) {
   //Ama burda sirayla yazmak zorunda degilim.Sadece ne nereye geliyor ona dikkat etmeliyim
 }
 
-const kitap1 = new Book("Nutuk", "Ataturk", 1925); //Burdaki siralama parameter siralamasiyla ayni olmali. Sira önemli
+const kitap1 = new Book("Nutuk", "Ataturk", 1925);
+const kitap2 = new Book("Karamazov Kardesler", "Dostoyevski", 1980); //Burdaki siralama parameter siralamasiyla ayni olmali. Sira önemli
 
 console.log(kitap1);
 console.log(kitap1.ozetFunction()); //Artik ObjectLiteraldeki kendi yazdigimiz format sekline gecti. Ayni sekilde cagirabiliyoruz bu yüzden
 
 //Prototype ekleme. ==>Eklememizin nedeni özellikle cagirana kadar bellekte yer tutmamasi
 
-Book.prototype.tur = "Roman";
-
 //Direk bir keyword de ekleyebiliriz. Ya da fonksiyon da ekleyebilir ve ihtiyac halinde fonksiyonu sanki Objectin icindeymis gibi cagirabiliriz.
-
+Book.prototype.tur = "Roman";
 Book.prototype.yilHesapla = function () {
   yas = new Date().getFullYear() - this.year;
   return `${this.title} ${yas} yasindadir`;
 };
 
 console.log(kitap1); //console da prototype icinde görebilirsiniz
+console.log(kitap2);
+console.log(kitap1.yilHesapla()); //Prototypeden cagirma
+console.log(kitap2.ozetFunction()); //Direk Object icinde tanimladigimiz fonksiyondan cagirma. Ayni hicbir farki yok.
 
-console.log(kitap1.yilHesapla());
+kitap1.tur = "Hikaye"; //Object icinde direk böyle yeni bir keyword ekler. Varsa eskisini degistirir
+//!!!!!!!!!!! __proto__ !!!!!
+kitap2.__proto__.tur = "Masal"; //Ama bu sekilde prototypedeki tur'ü direk degistirebliriz.
