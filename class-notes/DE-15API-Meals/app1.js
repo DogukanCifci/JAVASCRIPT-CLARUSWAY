@@ -1,6 +1,9 @@
 const display = document.querySelector(".row");
 let myArray = [];
 const inputBox = document.querySelector(".form-control");
+
+let areaList = [];
+
 //Veriyi API'den cekme
 const getMealDataFromApi = async () => {
   //https request url
@@ -28,6 +31,7 @@ const pressDisplay = (myArray) => {
 };
 
 //Yemek arama
+//with filter() new filtered array created and matching controlled
 
 function searchFood() {
   inputBox.addEventListener("input", () => {
@@ -39,3 +43,7 @@ function searchFood() {
     pressDisplay(myNewFilteredArray);
   });
 }
+
+//to find the country of the food
+areaList = myArray.forEach((e) => console.log(e.strArea));
+console.log(areaList);
